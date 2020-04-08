@@ -19,7 +19,7 @@ The output of the command shows you your future Loggy link. Open this link now i
 ### Test Loggy
 You can send a test entry to Loggy:
 ```
-php artisan loggy:key
+php artisan loggy:test
 ```
 If everything went right you should see two entries popping up on the openend website.
 

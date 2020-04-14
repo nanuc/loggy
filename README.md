@@ -30,6 +30,15 @@ loggy($myMessage);
 ```
 `myMessage` can be anything that can be translated into JSON (usually you would use a string or an array).
 
+### Time measurement
+You can start and stop a time measurement with 
+```
+loggy_start('name-of-time-measurement');
+do_something();
+loggy_stop('name-of-time-measurement');
+```
+The name is optional and defaults to "Measurement".
+
 ## More information
 ### Why?
 When starting to work with Laravel Vapor we realized how great this product of the Laravel team is!

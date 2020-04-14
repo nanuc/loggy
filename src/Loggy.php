@@ -9,6 +9,8 @@ class Loggy
     protected $url;
     protected $key;
 
+    protected $measurements = [];
+
     public function __construct($url, $key)
     {
         if(strlen($key) != config('loggy.key-length')) {
@@ -34,11 +36,34 @@ class Loggy
     }
 
     /**
+     * @param $name
+     */
+    public function startMeasurement($name = 'Measurement')
+    {
+        $this->measurements[$name] = microtime(true);
+    }
+
+    /**
+     * @param $name
+     */
+    public function stopMeasurement($name = 'Measurement')
+    {
+        $time = microtime(true);
+
+        if(array_key_exists($name, $this->measurements)) {
+            $this->send('[' . $name . '] ' .  number_format($time - $this->measurements[$name], 4));
+        }
+        else {
+            $this->send('[' . $name . '] Measurement was not started');
+        }
+    }
+
+    /**
      *
      * @param $url
      * @param $params
      */
-    public function postWithoutWait($url, $params)
+    protected function postWithoutWait($url, $params)
     {
         $parts=parse_url($url);
         $data= json_encode($params);

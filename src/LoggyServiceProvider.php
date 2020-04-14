@@ -26,7 +26,7 @@ class LoggyServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/loggy.php', 'loggy');
 
-        $this->app->bind('loggy', function(){
+        $this->app->singleton('loggy', function(){
             return new Loggy(config('loggy.url'), config('loggy.key'));
         });
     }

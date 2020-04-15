@@ -39,6 +39,12 @@ loggy_stop('name-of-time-measurement');
 ```
 The name is optional and defaults to "Measurement".
 
+### Blade
+You can also use loggy in your Blade views.
+```
+@loggy($myMessage)
+```
+
 ## More information
 ### Why?
 When starting to work with Laravel Vapor we realized how great this product of the Laravel team is!

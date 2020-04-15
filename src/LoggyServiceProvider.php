@@ -2,6 +2,7 @@
 
 namespace Nanuc\Loggy;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Nanuc\Loggy\Commands\KeyGenerateCommand;
 use Nanuc\Loggy\Commands\TestCommand;
@@ -20,6 +21,10 @@ class LoggyServiceProvider extends ServiceProvider
                 TestCommand::class,
             ]);
         }
+
+        Blade::directive('loggy', function ($message) {
+            return "<?php loggy($message); ?>";
+        });
     }
 
     public function register()

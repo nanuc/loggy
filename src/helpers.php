@@ -6,9 +6,9 @@ if (! function_exists('loggy')) {
     /**
      * Send a loggy
      */
-    function loggy($message)
+    function loggy(...$arguments)
     {
-        return Loggy::send($message);
+        return Loggy::send(...$arguments);
     }
 }
 

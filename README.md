@@ -16,6 +16,8 @@ php artisan loggy:key
 ```
 The output of the command shows you your future Loggy link. Open this link now in a browser before you test your Loggy installation.
 
+You can set the key `LOGGY_KEY` in `.env` to anything you want. Just remember that all apps with the same key share the same URL.
+
 ### Test Loggy
 You can send a test entry to Loggy:
 ```
@@ -28,7 +30,7 @@ Just put the following in your Laravel code to send information to Loggy:
 ```
 loggy($myMessage);
 ```
-`myMessage` can be anything that can be translated into JSON (usually you would use a string or an array).
+`myMessage` can be basically anything.
 
 ### Time measurement
 You can start and stop a time measurement with 

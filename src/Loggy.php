@@ -17,8 +17,8 @@ class Loggy
 
     public function __construct($url, $key)
     {
-        if(strlen($key) != config('loggy.key-length')) {
-            throw new LoggyException('Key must have a length of ' . config('loggy.key-length') . ' characters');
+        if(strlen($key) <1) {
+            throw new LoggyException('Key must have a length of at least 1 characters');
         }
         $this->url = $url;
         $this->key = $key;

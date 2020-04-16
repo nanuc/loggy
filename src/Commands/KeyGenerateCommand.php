@@ -28,7 +28,7 @@ class KeyGenerateCommand extends Command
      */
     public function handle()
     {
-        $key = Str::random(config('loggy.key-length'));
+        $key = Str::random(config('loggy.default-key-length'));
 
         // Next, we will replace the loggy key in the environment file so it is
         // automatically setup for this developer.
